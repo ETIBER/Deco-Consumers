@@ -3,7 +3,7 @@ function getUrl (url) {
 	http.get(url, res => {
   		res.setEncoding("utf8");
   		res.on("data", data => {
-    		console.log(data)
+    		console.log(`response:${data}`)
   		});
 	});
 }
