@@ -1,0 +1,31 @@
+version: '3.5'
+services:
+  consumer_1:
+    build: .
+    env_file:
+      - ./env/consumer.env
+      - ./env/consumer_1.env
+    working_dir: /src/app
+    command: "npm start"
+  consumer_2:
+    build: .
+    env_file:
+      - ./env/consumer.env
+      - ./env/consumer_2.env
+    working_dir: /src/app
+    command: "npm start"  
+  consumer_3:
+    build: .
+    env_file:
+      - ./env/consumer.env
+      - ./env/consumer_3.env
+    working_dir: /src/app
+    command: "npm start"
+  consumer_4:
+    build: .
+    env_file:
+      - ./env/consumer.env
+      - ./env/consumer_4.env
+    working_dir: /src/app
+    command: "npm start"
+
