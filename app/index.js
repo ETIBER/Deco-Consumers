@@ -1,22 +1,25 @@
 const httpService = require("./httpService.js")
+const serviceRouteConfiguration = require("./serviceRouteConfiguration.js")
 
-const MONOLYTHE_DNS = process.env.MONOLYTHE_DNS|| localhost
+
+const MONOLYTHE_DNS = process.env.MONOLYTHE_DNS|| "localhost"
 const MONOLYTHE_PORT = process.env.MONOLYTHE_PORT || 3000
-const CONSUME_APP = [
-	process.env.CONSUME_APP_1 || null,
-	process.env.CONSUME_APP_2 || null,
-	process.env.CONSUME_APP_3 || null,
-	process.env.CONSUME_APP_4 || null,
-	process.env.CONSUME_APP_5 || null
-]
+
+serviceRouteConfiguration.virement_externe.run = process.env.VIREMENT_EXTERNE|| null
+serviceRouteConfiguration.virement_interne.run  = process.env.VIREMENT_INTERNE || null
+serviceRouteConfiguration.opposition_carte.run  = process.env.OPPOSITION_CARTE || null
+serviceRouteConfiguration.consultation_solde.run  = process.env.CONSULTATION_SOLDE || null
+serviceRouteConfiguration.plafond_carte.run  = process.env.PLAFOND_CARTE || null
+
 
 const urlMonolythe = `http://${MONOLYTHE_DNS}:${MONOLYTHE_PORT}`
 
-for (let consumeAppNumber = 0; consumeAppNumber<5; consumeAppNumber++) {
-	const urlMonolytheApp = `${urlMonolythe}/app${consumeAppNumber + 1}`
-	if (CONSUME_APP[consumeAppNumber] != null){
+for (let serviceName in serviceRouteConfiguration) {
+	const service = serviceRouteConfiguration[serviceName]
+	const urlMonolytheApp = `${urlMonolythe}/${service.route}`
+	if (service.run){
 		setInterval(() => {
-			httpService.getUrl(urlMonolytheApp)
+			httpService.get(urlMonolytheApp)
 		},1000)
 	}
 }

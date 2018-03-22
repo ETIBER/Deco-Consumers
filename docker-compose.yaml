@@ -1,31 +1,37 @@
 version: '3.5'
 services:
-  consumer_1:
+  portail_web_particulier:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/consumer_1.env
+      - ./env/portail_web_particulier.env
     working_dir: /src/app
     command: "npm start"
-  consumer_2:
+  web_service_grand_compte:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/consumer_2.env
+      - ./env/web_service_grand_compte.env
     working_dir: /src/app
     command: "npm start"  
-  consumer_3:
+  agence_connect:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/consumer_3.env
+      - ./env/agence_connect.env
     working_dir: /src/app
     command: "npm start"
-  consumer_4:
+  bach_virement:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/consumer_4.env
+      - ./env/bach_virement.env
     working_dir: /src/app
     command: "npm start"
-
+  bach_opposition:
+    build: .
+    env_file:
+      - ./env/consumer.env
+      - ./env/bach_opposition.env
+    working_dir: /src/app
+    command: "npm start"

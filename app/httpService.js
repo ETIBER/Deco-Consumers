@@ -1,5 +1,5 @@
 const http = require("http");
-function getUrl (url) {
+function get (url) {
 	http.get(url, res => {
   		res.setEncoding("utf8");
   		res.on("data", data => {
@@ -9,5 +9,5 @@ function getUrl (url) {
 }
 
 module.exports = {
-	getUrl
+	get
 }
