@@ -6,18 +6,18 @@ module.exports =  {
 	virement_interne:{
 		operation: "post",
 		route: "/apiEndPoint",
-		body: "operation=virement_interne&accountNumber=3696492790r",
+		body: `operation=virement_interne&accountNumber=${Math.floor(Math.random()*100000000)}`,
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded",
 		}
 	},
 	opposition_carte: {
 		operation: "get",
-		route: "/api/carteService/26753864/opposition/2473"
+		route: `/api/carteService/${Math.floor(Math.random()*100000000)}/opposition/${Math.floor(Math.random()*100000000)}`
 	},
 	consultation_solde: {
 		opperation: "get",
-		route: "/services/consultation_solde/638432379623"
+		route: `/services/consultation_solde/${Math.floor(Math.random()*100000000)}`
 	},
 	plafond_carte: {
 		opperation: "get",
@@ -27,7 +27,7 @@ module.exports =  {
 			<Request
 					service="plafondSolde"
 					version="1.0.0"
-					account="wfdsfsdfs" />
+					account="${Math.floor(Math.random()*100000000)}" />
 				`
 	}
 }
