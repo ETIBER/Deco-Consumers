@@ -17,7 +17,7 @@ module.exports =  {
 	},
 	consultation_solde: {
 		opperation: "get",
-		route: `/services/consultation_solde/${Math.floor(Math.random()*100000000)}`
+		route: /services/consultation_solde/${Math.floor(Math.random()*100000000)}`
 	},
 	plafond_carte: {
 		opperation: "get",
