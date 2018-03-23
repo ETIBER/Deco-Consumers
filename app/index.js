@@ -16,6 +16,7 @@ const urlMonolythe = `http://${MONOLYTHE_DNS}:${MONOLYTHE_PORT}`
 for (let serviceName in serviceRouteConfiguration) {
 	const service = serviceRouteConfiguration[serviceName]
 	const urlMonolytheApp = `${urlMonolythe}${service.route}`
+	console.log(service.route)
 	if (service.run){
 		setInterval(() => {
 			httpService.get(urlMonolytheApp)
