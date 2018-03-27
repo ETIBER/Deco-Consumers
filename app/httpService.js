@@ -1,6 +1,6 @@
 var request = require('request');
 
-const USER_AGENT = process.env.USER_AGENT || null
+const USER_AGENT = process.env.USER_AGENT 
 
 function get (url) {
 	const options = {
