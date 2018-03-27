@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ETIBER/Deco-Consumers/issues"
   },
-  "homepage": "https://github.com/ETIBER/Deco-Consumers#readme"
+  "homepage": "https://github.com/ETIBER/Deco-Consumers#readme",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
 }

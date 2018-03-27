@@ -1,4 +1,4 @@
-const http = require("http");
+var request = require('request');
 
 const USER_AGENT = process.env.USER_AGENT || null
 
@@ -6,15 +6,15 @@ function get (url) {
 	const options = {
   		url: url,
   		headers: {
-    		'User-Agent': USER_AGENT
+    		"User-Agent": USER_AGENT
   		}
 	}
-	console.log(options)
-	http.get(options, res => {
-  		res.setEncoding("utf8");
-  		res.on("data", data => {
-    		console.log(`response:${data}`)
-  		})
+	request(url, (error, response, body) => {
+		if(error) {
+			console.log(error)
+		} else {
+			console.log(`response:${body}`)
+		}
 	})
 }
 
