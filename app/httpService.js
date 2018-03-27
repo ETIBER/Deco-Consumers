@@ -9,7 +9,7 @@ function get (url) {
     		"User-Agent": USER_AGENT
   		}
 	}
-	request(url, (error, response, body) => {
+	request(options, (error, response, body) => {
 		if(error) {
 			console.log(error)
 		} else {
