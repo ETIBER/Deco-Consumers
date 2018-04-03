@@ -13,7 +13,7 @@ services:
       - ./env/consumer.env
       - ./env/web_service_grand_compte.env
     working_dir: /src/app
-    command: "npm start"  
+    command: "npm start"
   agence_connect:
     build: .
     env_file:
@@ -21,17 +21,17 @@ services:
       - ./env/agence_connect.env
     working_dir: /src/app
     command: "npm start"
-  bach_virement:
+  bash_virement:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/bach_virement.env
+      - ./env/bash_virement.env
     working_dir: /src/app
     command: "npm start"
-  bach_opposition:
+  bash_opposition:
     build: .
     env_file:
       - ./env/consumer.env
-      - ./env/bach_opposition.env
+      - ./env/bash_opposition.env
     working_dir: /src/app
     command: "npm start"
