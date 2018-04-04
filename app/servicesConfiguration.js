@@ -1,10 +1,20 @@
+const VIREMENT_EXTERNE_DNS = process.env.VIREMENT_EXTERNE_DNS || "localhost"
+const VIREMENT_EXTERNE_PORT = process.env.VIREMENT_EXTERNE_PORT || 3000
+
+const MONOLYTHE_DNS = process.env.MONOLYTHE_DNS|| "localhost"
+const MONOLYTHE_PORT = process.env.MONOLYTHE_PORT || 3000
+
 module.exports =  {
 	virement_externe:{
 		operation: "get",
-		route: "/services?op=virement_externe"
+		host:VIREMENT_EXTERNE_DNS,
+		port:VIREMENT_EXTERNE_PORT,
+		route: "/api/V1"
 	},
 	virement_interne:{
 		operation: "post",
+		host:MONOLYTHE_DNS,
+		port:MONOLYTHE_PORT,
 		route: "/apiEndPoint",
 		body: `operation=virement_interne&accountNumber=${Math.floor(Math.random()*100000000)}`,
 		headers: {
@@ -13,14 +23,20 @@ module.exports =  {
 	},
 	opposition_carte: {
 		operation: "get",
+		host:MONOLYTHE_DNS,
+		port:MONOLYTHE_PORT,
 		route: `/api/carteService/${Math.floor(Math.random()*100000000)}/opposition/${Math.floor(Math.random()*100000000)}`
 	},
 	consultation_solde: {
 		opperation: "get",
+		host:MONOLYTHE_DNS,
+		port:MONOLYTHE_PORT,
 		route: `/services/consultation_solde/${Math.floor(Math.random()*100000000)}`
 	},
 	plafond_carte: {
 		opperation: "get",
+		host:MONOLYTHE_DNS,
+		port:MONOLYTHE_PORT,
 		route: "/XMLrequestConsumer",
 		body: `
 			<?xml version="1.0" ?>
