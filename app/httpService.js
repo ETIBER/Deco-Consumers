@@ -6,6 +6,7 @@ function get (url) {
 	const options = {
   		url: url,
   		headers: {
+    		"User-Agent": USER_AGENT
   		}
 	}
 	request(options, (error, response, body) => {
