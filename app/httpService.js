@@ -1,12 +1,11 @@
 var request = require('request');
 
-const USER_AGENT = process.env.USER_AGENT 
+const USER_AGENT = process.env.USER_AGENT
 
 function get (url) {
 	const options = {
   		url: url,
   		headers: {
-    		"User-Agent": USER_AGENT
   		}
 	}
 	request(options, (error, response, body) => {
